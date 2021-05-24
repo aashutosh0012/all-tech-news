@@ -1,0 +1,89 @@
+<!-- {% load static %} -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- Refresh Page every 3 Seconds -->
+		<!-- <meta http-equiv="refresh" content="3" > --> 
+		<title>2AKS NAGG</title>
+		<style>
+			 body {
+                padding: 0;
+                margin: 0;
+            }
+             .container{
+                background: aqua;
+                height: 100%;       
+                /*display: flex;*/
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr;  
+                grid-gap: 1px;            
+            }
+           .grds{
+           		position: relative;
+           		margin-left: auto;
+           		margin-right: auto;
+	           	margin-top: 10px;
+           		display: grid;
+           		grid-template-columns: 1fr 1fr 1fr;
+           		grid-template-rows: 1fr 1fr;
+           		grid-gap: 10px;
+           		border: solid;
+           		padding: 10px;
+           }
+           .box{
+	            /*margin:10px;
+	            margin-top: 120px;*/
+	            /*float: left;*/
+	            background: yellow;
+	            height:450px;
+	            width: 450px;
+	            border-radius: 10px;
+	            /*flex: 1;*/
+	            overflow-y: auto;
+           }
+           .header{
+            	position: relative;
+    			border: solid;
+    			justify-content: center;
+    			text-align: center;
+    			padding: 1px;
+    			margin: 1px;
+            }
+            .page_footer{
+            	background-color: #F3F3F3;
+			    padding-top: 10px;
+			    padding-bottom: 0px;
+			    /*position: fixed;*/
+			    bottom:0;
+			    width:100%;
+			    text-align: center;
+			    border: solid;
+            }
+        </style>
+	</head>
+
+	<body>
+		
+		<div class='container'>
+			<div class='header'>
+				<h1>News Aggregator</h1>
+				<p style="margin:0;">All News That Matters, At One Place.</p>
+			</div> <!-- head close -->
+
+			<div class='grds'>
+				<div class='box'>Box1</div> 
+				<div class='box'>Box2</div> 
+				<div class='box'>Box3</div> 
+				<div class='box'>Box4</div> 
+				<div class='box'>Box5</div> 
+				<div class='box'>Box6</div> 
+				
+			</div>   <!-- grds close -->
+
+			<div class='page_footer'>
+				<h4>Footer</h4>
+			</div> <!-- footer -->
+		</div> <!-- container -->
+	</body>
+</html>

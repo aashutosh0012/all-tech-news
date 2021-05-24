@@ -1,0 +1,1 @@
+web: gunicorn nagg.wsgi --log-file 

@@ -1,0 +1,245 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- Refresh Page every 3 Seconds -->
+		<!-- <meta http-equiv="refresh" content="3" > --> 
+		<title>AKS NAGG</title>
+		<style>
+			body {
+                padding: 0;
+                margin: 0;
+            }
+            .container{
+                background: aqua;
+                height: 100%;       
+                /*display: flex;*/
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr;  
+                grid-gap: 1px;            
+            }
+           .grds{
+           		position: relative;
+           		margin-left: 20px;
+           		margin-right: 20px;
+	           	margin-top: 10px;
+           		display: grid;
+           		grid-template-columns: 1fr 1fr 1fr;
+           		grid-template-rows: 1fr 1fr;
+           		grid-column-gap: 30px;
+           		grid-row-gap: 30px;
+           		padding: 10px;
+           }
+           .box{
+	            /*margin:10px;
+	            margin-top: 120px;*/
+	            /*float: left;*/
+	            background: yellow;
+	            height:450px;
+	            width: 480px;
+	            border-radius: 10px;
+	            /*flex: 1;*/
+	            overflow-y: auto;
+           }
+           .header{
+            	position: relative;
+    			justify-content: center;
+    			text-align: center;
+    			padding: 1px;
+    			margin: 1px;
+            }
+            .page_footer{
+            	background-color: #F3F3F3;
+			    padding-top: 10px;
+			    padding-bottom: 0px;
+			    /*position: fixed;*/
+			    bottom:0;
+			    width:100%;
+			    text-align: center;
+			    font-family: Georgia,Serif;
+            }
+            .items{
+                position: relative;
+                margin: 10px;
+                padding: 10px;
+                border: solid;
+                border-width: 2px; 
+                height: 60px;
+                width: 400px;
+                display: flex; /** ADDED **/
+                background: white;
+            }
+            .title{
+                position: relative;
+                width: 50%;
+                float: left;
+                flex: 1 1 auto;
+            }
+            .image{
+                position: relative;
+                float: right;
+                clear: both;
+                border-width: 2px;
+                border: solid;
+                flex: 1; /** ADDED **/
+                display: flex;  /** ADDED **/
+                text-align: center;
+            }
+            .image a{
+              text-align: center;  /** ADDED **/
+            }
+            .image img{
+              max-width: 100%;  /** ADDED **/
+              max-height: 100%; /** ADDED **/
+            }
+            /* Clearfix (clear floats) */
+            .row::after {
+              content: "";
+              clear: both;
+              display: table;
+            }
+            a, a:focus, a:active {
+		    	text-decoration: none;
+		    	color: inherit;
+			}
+			a:hover{
+				text-decoration: underline;
+			}
+			.logo{
+				position: -webkit-sticky;
+				position: sticky;
+				/*border: solid;
+				border-width: 1px;*/
+				top: 0;
+				margin: 0;
+				margin-left: 25%;
+				margin-right: 25%;
+			    z-index: 100;
+			    height: 8%;
+				width: 40%;
+			}
+        </style>
+	</head>
+
+	<body>
+		
+		<div class='container'>
+			<div class='header'>
+				<h1>News Aggregator</h1>
+				<p style="margin:0;">All Tech News That Matters, At One Place.</p>
+			</div> <!-- head close -->
+
+			<div class='grds'>
+
+				<div class='box'>
+					 <img class='logo' src="{% static 'images/techcrunch.png' %}">
+					 {% for t,l,i in tc_data %}
+						<div class='items'>
+							
+							<div class='title'>
+								<a href="{{l}}" target="_blank" rel="noopener noreferrer">{{t}}<a/> 
+							</div>
+
+							<div class='image'>
+								<a href="{{l}}" target="_blank" rel="noopener noreferrer"><img src="{{i}}"></a>
+							</div>
+
+						</div>								
+					{% endfor %}
+				</div> <!-- box -->
+
+				<div class='box'>
+					<img class='logo' src="{% static 'images/theverge1.png' %}">
+					{% for t,l,i in tv_data %}
+						<div class='items'>
+							
+							<div class='title'>
+								<a href="{{l}}" target="_blank" rel="noopener noreferrer">{{t}}<a/> 
+							</div>
+
+							<div class='image'>
+								<a href="{{l}}" target="_blank" rel="noopener noreferrer"><img src="{{i}}"></a>
+							</div>
+
+						</div>								
+					{% endfor %}
+				</div>  <!-- box -->
+
+				<div class='box'>
+					<img class='logo' src="{% static 'images/wired.png' %}">
+					{% for t,l,i in w_data %}
+						<div class='items'>
+							
+							<div class='title'>
+								<a href="{{l}}" target="_blank" rel="noopener noreferrer">{{t}}<a/> 
+							</div>
+
+							<div class='image'>
+								<a href="{{l}}" target="_blank" rel="noopener noreferrer"><img src="{{i}}"></a>
+							</div>
+
+						</div>								
+					{% endfor %}
+				</div>  <!-- box -->
+				<div class='box'>
+					<img class='logo' src="{% static 'images/mashable.png' %}">
+					{% for t,l,i in ms_data %}
+						<div class='items'>
+							
+							<div class='title'>
+								<a href="{{l}}" target="_blank" rel="noopener noreferrer">{{t}}<a/> 
+							</div>
+
+							<div class='image'>
+								<a href="{{l}}" target="_blank" rel="noopener noreferrer"><img src="{{i}}"></a>
+							</div>
+
+						</div>								
+					{% endfor %}										
+				</div>  <!-- box -->
+
+
+				<!-- CNET Data -->
+				<div class='box'>
+					<img class='logo' src="{% static 'images/cnet.png' %}">
+					{% for t,l,i in cnet_data %}
+						<div class='items'>	
+							<div class='title'>
+								<a href="{{l}}" target="_blank" rel="noopener noreferrer">{{t}}<a/> 
+							</div>
+							<div class='image'>
+								<a href="{{l}}" target="_blank" rel="noopener noreferrer"><img src="{{i}}"></a>
+							</div>
+						</div>								
+					{% endfor %}
+				</div>  <!-- box -->
+
+
+
+				<!-- gizmodo_data -->
+				<div class='box'>
+					<img class='logo' src="{% static 'images/gizmodo.png' %}">
+					{% for t,l,i in gizmodo_data %}
+						<div class='items'>	
+							<div class='title'>
+								<a href="{{l}}" target="_blank" rel="noopener noreferrer">{{t}}<a/> 
+							</div>
+							<div class='image'>
+								<a href="{{l}}" target="_blank" rel="noopener noreferrer"><img src="{{i}}"></a>
+							</div>
+						</div>								
+					{% endfor %}
+				</div>  <!-- box -->
+				
+			</div>   <!-- grds close -->
+
+
+
+			<div class='page_footer'>
+				<h4>Made by &copy; Aashutosh| <a href="mailto:aashutosh0012@gmail.com" class="text-decoration-none">aashutosh0012@gmail.com</a></h4>
+			</div> <!-- footer -->
+
+		</div> <!-- container -->
+	</body>
+</html>

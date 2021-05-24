@@ -1,0 +1,8 @@
+
+
+Add user to Sudo Group in Linux
+--------------------------------
+
+sudo cp /etc/sudoers /root/sudoers.bak
+visudo
+	tom ALL=(ALL) NOPASSWD:AL
